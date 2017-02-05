@@ -1,6 +1,9 @@
 package com.java.assignment.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +30,12 @@ public class ProductServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Product.html");
+		 PrintWriter out= response.getWriter();
+		 out.println("Invalid user name or password");
+		 rd.include(request, response);
+
 	}
 
 	/**
